@@ -29,7 +29,7 @@ class GenAllSpec extends AnyWordSpec with Matchers {
     "generate all cases" in {
       val all = GenAll[TaskType]
 
-      all.length shouldBe 2
+      all shouldBe Seq(TaskTypes.A, TaskTypes.B)
     }
   }
 

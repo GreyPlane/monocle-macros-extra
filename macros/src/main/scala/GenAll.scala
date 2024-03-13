@@ -41,7 +41,7 @@ private class GenAllImpl(val c: blackbox.Context) {
 
   def genAll[T: c.WeakTypeTag]: c.Expr[Seq[T]] = {
     val children =
-      directSubCaseObjects[T].map(symbol => q"new ${symbol.asClass}")
+      directSubCaseObjects[T].map(symbol => q"${symbol.asClass.module}")
 
     c.Expr[Seq[T]](
       q"Seq(..$children)"
